@@ -2,5 +2,5 @@
 
 exit_program() {
   echo "Thank you!"
-  exit 1
+  exit 0
 }
