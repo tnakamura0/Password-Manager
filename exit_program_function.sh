@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 
 exit_program() {
   echo "Thank you!"

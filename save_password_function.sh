@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 
 save_password() {
   read -p "サービス名を入力してください：" service_name
