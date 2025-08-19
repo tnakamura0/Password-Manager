@@ -1,10 +1,13 @@
 #!/bin/bash
+source save_password_function.sh
+source get_password_function.sh
+source exit_program_function.sh
 
-echo "パスワードマネージャーへようこそ！"
-read -p "サービス名を入力してください：" service_name
-read -p "ユーザー名を入力してください：" user_name
-read -s -p "パスワードを入力してください：" password
-# 次の行の"Thank you!"が前の行にインライン表示されるので改行する
-echo
-echo "${service_name}:${user_name}:${password}" >> storage.txt
-echo "Thank you!"
+read -p "次の選択肢から入力してください(Add Password/Get Password/Exit)：" select
+
+case ${select} in
+  "Add Password")save_password;;
+  "Get Password")get_password;;
+  "Exit")exit_program;;
+  *);;
+esac
