@@ -13,6 +13,6 @@ do
     "Add Password")save_password;;
     "Get Password")get_password;;
     "Exit")exit_program;;
-    *);;
+    *)echo "入力が間違えています。Add Password/Get Password/Exit から入力してください。";;
   esac
 done
