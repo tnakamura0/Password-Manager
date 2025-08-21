@@ -3,6 +3,10 @@
 get_password() {
   read -p "サービス名を入力してください：" service_name
 
+  # 復号化
+  # 標準出力と標準エラー出力を/dev/nullに捨てる
+  gpg --yes storage.txt.asc > storage.txt 2>&1 > /dev/null
+
   # storage.txtにはservice_name:user_name:passwordの形式でデータが保存されている
   # そのため、正規表現^を用いて『特定のservice_name:』から始まる行を抽出できる
   data=$(cat storage.txt | grep "^${service_name}:")
@@ -20,4 +24,8 @@ get_password() {
     echo "ユーザー名：${user_name_data}"
     echo "パスワード：${password_data}"
   fi
+
+  # 暗号化
+  # save_password_function.shと同様
+  gpg --armor --encrypt --recipient 206074491+tnakamura0@users.noreply.github.com --yes storage.txt > /dev/null
 }
