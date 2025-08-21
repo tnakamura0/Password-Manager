@@ -5,6 +5,10 @@ save_password() {
   read -p "ユーザー名を入力してください：" user_name
   read -s -p "パスワードを入力してください：" password
 
+  # 復号化
+  # 標準エラー出力を/dev/nullに捨てる
+  gpg --yes storage.txt.asc > storage.txt 2> /dev/null
+
   # 次の行がターミナル上で前の行にインライン表示されることを防ぐために改行する
   echo
   echo "${service_name}:${user_name}:${password}" >> storage.txt
