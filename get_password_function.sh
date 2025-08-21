@@ -4,8 +4,8 @@ get_password() {
   read -p "サービス名を入力してください：" service_name
 
   # 復号化
-  # 標準出力と標準エラー出力を/dev/nullに捨てる
-  gpg --yes storage.txt.asc > storage.txt 2>&1 > /dev/null
+  # 標準エラー出力を/dev/nullに捨てる
+  gpg --yes storage.txt.asc > storage.txt 2> /dev/null
 
   # storage.txtにはservice_name:user_name:passwordの形式でデータが保存されている
   # そのため、正規表現^を用いて『特定のservice_name:』から始まる行を抽出できる
