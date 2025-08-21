@@ -28,4 +28,6 @@ get_password() {
   # 暗号化
   # save_password_function.shと同様
   gpg --armor --encrypt --recipient 206074491+tnakamura0@users.noreply.github.com --yes storage.txt > /dev/null
+
+  rm storage.txt
 }

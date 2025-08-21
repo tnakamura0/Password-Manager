@@ -14,6 +14,8 @@ save_password() {
   # gpgコマンドがデフォルトで結果を標準出力するため、/dev/nullに捨てる
   # 出力ファイルが既に存在する場合に上書きするか聞かれるため、--yesオプションにより自動で上書きする
   gpg --armor --encrypt --recipient 206074491+tnakamura0@users.noreply.github.com --yes storage.txt > /dev/null
+
+  rm storage.txt
   
   echo "パスワードの追加は成功しました。"
 }
